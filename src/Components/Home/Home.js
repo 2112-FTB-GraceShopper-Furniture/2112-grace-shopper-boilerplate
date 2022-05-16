@@ -13,12 +13,18 @@ function Home() {
   return (
     <div className="home">
       <div className="home__container">
+        <div className="home__intro">
+          <h1>Welcome to Coconut Furtniture</h1>
+        </div>
         <img
           className="home__image"
           src={Hero}
           alt="Beautiful modern patio furniture with some green shrubbery on the foreground"
         />
 
+        <div className="feature__div">
+          <h2>Featured Products</h2>
+        </div>
         <div className="home__row">
           <Product
             id="1"
