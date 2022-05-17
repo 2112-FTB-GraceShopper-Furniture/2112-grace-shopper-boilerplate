@@ -1,6 +1,5 @@
-const 
-  client
- = require("./client");
+const client = require('./client');
+console.log("client",client)
 const { createProduct } = require("./models/products");
 
 //  const bcrypt = require('bcrypt');

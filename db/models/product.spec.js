@@ -1,5 +1,5 @@
 require("dotenv").config();
-const client = require("../client");
+const client = require('./client');
 const { createProduct } = require("./products");
 const { singleProduct } = require("./singleProduct");
 
