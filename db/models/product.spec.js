@@ -1,8 +1,9 @@
 require("dotenv").config();
 const client = require("../client");
-
-const {singleProduct} = require('../db/models/singleProduct');
 const { createProduct } = require("./products");
+const { singleProduct } = require("./singleProduct");
+
+
 
 
 describe("singleProduct", () => {
