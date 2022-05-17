@@ -3,7 +3,7 @@ const {
   //add all other functions needed here.
 } = require("./");
 
-const {createUser, getUser, getUserById, getUserByUsername, getAllUsers} = require("./models")
+const {createUser, getUser, getUserById, getUserByUsername, getAllUsers,products} = require("./models")
 
 async function buildTables() {
   try {
