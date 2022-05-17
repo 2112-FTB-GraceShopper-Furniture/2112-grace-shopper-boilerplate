@@ -1,4 +1,6 @@
-const getSingleProduct = async (productId) => {
+const client = require('./client');
+
+const singleProduct = async (productId) => {
 	try {
 		const { rows: [ product ] } = await client.query(
 			`
@@ -14,3 +16,7 @@ const getSingleProduct = async (productId) => {
 		throw error;
 	}
 };
+
+module.exports = {
+    singleProduct
+}

@@ -7,6 +7,7 @@ async function createProduct({
   price,
   reviewStars,
   category,
+  img
 }) {
   try {
     const {

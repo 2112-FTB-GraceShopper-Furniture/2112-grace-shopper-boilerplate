@@ -1,16 +1,15 @@
 const productsToAdd = [
   {
-    name: "interdum.",
-    description: "amet nulla. Donec non justo. Proin non massa non ante",
+    name: "Harstine Leather Sofa",
+    description: "The Harstine Leather Sofa features thick arms, which compliment the tufted seat cushions and back cushions",
     stock: 11,
     price: "$78.77",
     reviewStars: 3,
-    category: "beds",
+    category: "sofa",
   },
   {
-    name: "mi.",
-    description:
-      "sollicitudin orci sem eget massa. Suspendisse eleifend. Cras sed leo.",
+    name: "Rafferty Upholstered Queen Bed",
+    description: "Crafted with premium fabric and anchored by sturdy solid wood construction, the Rafferty Upholstered Bed is both elegant in design and function",
     stock: 5,
     price: "$26.31",
     reviewStars: 2,
