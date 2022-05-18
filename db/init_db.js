@@ -1,26 +1,25 @@
 const client = require('./client');
-console.log("client",client)
 const { createProduct } = require("./models/products");
+const { singleProduct } = require("./models/products");
+const { createUser } = require("./models/user")
 
-//  const bcrypt = require('bcrypt');
 
-// const 
-//   createUser = require("./models/user");
   
 const {
   productsToAdd,
-  // usersToCreate,
+   usersToCreate,
 } = require("./seedData");
 
 async function dropTables() {
+  console.log("Dropping All Tables...")
   try {
     // drop tables in correct order
     console.log("Starting to drop tables.. ")
     await client.query(`
-   
+    DROP TABLE IF EXISTS cart;
+    DROP TABLE IF EXISTS orders;
     DROP TABLE IF EXISTS products;
-    
-
+    DROP TABLE IF EXISTS users;
     `);
     console.log('Finished dropping tables!');
 	} catch (error) {
@@ -29,21 +28,50 @@ async function dropTables() {
 	}
 }
 
-async function createTables() {
+async function buildTables() {
   try {
+    console.log("Starting to build tables...")
     await client.query(`
      
 
-      CREATE TABLE products (
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(255) UNIQUE NOT NULL,
-        description VARCHAR(255) NOT NULL,
-        stock INTEGER NOT NULL,
-        price INTEGER NOT NULL,
-        category VARCHAR(255),
-        "reviewStar" INTEGER,
-      );
-
+    CREATE TABLE users(
+      id SERIAL PRIMARY KEY,
+      username VARCHAR(255) UNIQUE NOT NULL,
+      email VARCHAR(255) UNIQUE NOT NULL,
+      password VARCHAR(255) NOT NULL,
+      firstname VARCHAR(255),
+      lastname VARCHAR(255),
+      role VARCHAR(255)
+    );
+    CREATE TABLE products (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(255) UNIQUE NOT NULL,
+      description VARCHAR(255) NOT NULL,
+      stock INTEGER NOT NULL,
+      price VARCHAR(255) NOT NULL,
+      category VARCHAR(255),
+      reviewstars INTEGER
+    );
+    CREATE TABLE orders (
+      id SERIAL PRIMARY KEY, 
+      "firstname" VARCHAR(255) NOT NULL,
+      "lastname" VARCHAR(255) NOT NULL,
+      email VARCHAR(255) NOT NULL,
+      street VARCHAR(255) NOT NULL,
+      city VARCHAR(255) NOT NULL,
+      zipcode VARCHAR(255) NOT NULL,
+      country VARCHAR(255) NOT NULL,
+      phone INTEGER NOT NULL,
+      total INTEGER NOT NULL
+    );
+    CREATE TABLE cart (
+      id SERIAL PRIMARY KEY, 
+      "userId" INTEGER REFERENCES users(id),
+      "productId" INTEGER REFERENCES products(id),
+      "ordersId" INTEGER REFERENCES orders(id),
+      "priceAtTimeOfPurchase" integer NOT NULL,
+      quantity INTEGER NOT NULL
+    )
 `);
 
 console.log('Finished building tables!');
@@ -53,28 +81,37 @@ console.log('Finished building tables!');
 		throw error;
 	}
 }
-    // build tables in correct order
     
-  
-
-
-
-
-async function createInitialProducts() {
-  try {
-    console.log("Starting to create products...");
-
-    const products = await Promise.all(productsToAdd.map(createProduct));
-
-    console.log("products created:");
-    console.log(products);
-
-    console.log("Finished creating products!");
-  } catch (error) {
-    console.error("Error creating products!");
-    throw error;
-  }
-}
+ async function createInitialUsers() {
+      console.log("Starting to create users...");
+    
+      try {
+        const users = await Promise.all(usersToCreate.map(createUser));
+    console.log(usersToCreate)
+        console.log("Users created:");
+        console.log(users);
+        console.log("Finished creating users!");
+      } catch (error) {
+        console.error("Error creating users!");
+        throw error;
+      }
+    }
+    
+    async function createInitialProducts() {
+      try {
+        console.log("Starting to create products...");
+    
+        const products = await Promise.all(productsToAdd.map(createProduct));
+    
+        console.log("products created:");
+        console.log(products);
+    
+        console.log("Finished creating products!");
+      } catch (error) {
+        console.error("Error creating products!");
+        throw error;
+      }
+    }
 
 // async function createInitialOrders() {
 //   console.log("Starting to create orders...");
@@ -110,8 +147,8 @@ async function rebuildDB() {
   try {
     client.connect();
     await dropTables();
-    await createTables();
-    // await createInitialUsers();
+    await buildTables();
+    await createInitialUsers();
     await createInitialProducts();
     // await createInitialOrders();
     // await createInitialCarts();
