@@ -1,13 +1,9 @@
 const client = require('./client');
 const { createProduct } = require("./models/products");
-const { singleProduct } = require("./models/products");
 const { createUser } = require("./models/user")
 
-
-  
 const {
-  productsToAdd,
-   usersToCreate,
+  productsToAdd,usersToCreate,ordersToCreate
 } = require("./seedData");
 
 async function dropTables() {
@@ -113,19 +109,19 @@ console.log('Finished building tables!');
       }
     }
 
-// async function createInitialOrders() {
-//   console.log("Starting to create orders...");
-//   try {
-//     const users = await Promise.all(ordersToCreate.map(createOrders));
+async function createInitialOrders() {
+  console.log("Starting to create orders...");
+  try {
+    const users = await Promise.all(ordersToCreate.map(createOrders));
 
-//     console.log("Users created:");
-//     console.log(users);
-//     console.log("Finished creating users!");
-//   } catch (error) {
-//     console.error("Error creating users!");
-//     throw error;
-//   }
-// }
+    console.log("Users created:");
+    console.log(users);
+    console.log("Finished creating users!");
+  } catch (error) {
+    console.error("Error creating users!");
+    throw error;
+  }
+}
 
 // async function createInitialCarts() {
 //   try {
@@ -150,7 +146,7 @@ async function rebuildDB() {
     await buildTables();
     await createInitialUsers();
     await createInitialProducts();
-    // await createInitialOrders();
+    await createInitialOrders();
     // await createInitialCarts();
   } catch (error) {
     console.log("Error during rebuildDB");
