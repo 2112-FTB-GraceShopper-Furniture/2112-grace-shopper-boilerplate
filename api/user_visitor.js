@@ -41,7 +41,7 @@ userRouter.post("/register", async (req, res, next) => {
 })
 
 userRouter.post("/login", async (req, res, next) => {
-    const { username, passowrd } = req.body;
+    const { username, password } = req.body;
     try {
         const user = await getUser({ username, password });
         console.log(password, user, "Password Check");
