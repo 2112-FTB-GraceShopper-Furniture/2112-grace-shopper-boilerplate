@@ -17,7 +17,7 @@ async function createProduct({
             `,
       [name, description, stock, price, reviewStars, category]
     );
-    return rows;
+    return product;
   } catch (error) {
     throw error;
   }

@@ -110,9 +110,9 @@ async function createInitialUsers() {
 
   try {
     const users = await Promise.all(usersToCreate.map(createUser));
-console.log(usersToCreate)
+//console.log(usersToCreate)
     console.log("Users created:");
-    console.log(users);
+   // console.log(users);
     console.log("Finished creating users!");
   } catch (error) {
     console.error("Error creating users!");
