@@ -1,3 +1,4 @@
+const { client } = require('../db');
 const express = require('express');
 const usersRouter = express.Router();
 const { getUser, getAllUsers } = require('../db/users');
