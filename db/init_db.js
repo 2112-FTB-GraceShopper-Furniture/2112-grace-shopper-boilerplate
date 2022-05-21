@@ -58,7 +58,7 @@ async function buildTables() {
         description VARCHAR(255) NOT NULL,
         stock INTEGER NOT NULL,
         price VARCHAR(255) NOT NULL,
-        category VARCHAR(255),
+        category VARCHAR(255) REFERENCES category(id) ON DELETE CASCADE,
         reviewstars INTEGER
       );
       
