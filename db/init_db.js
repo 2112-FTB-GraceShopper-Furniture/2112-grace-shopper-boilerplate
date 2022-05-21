@@ -65,6 +65,7 @@ async function buildTables() {
       CREATE TABLE category (
         id SERIAL PRIMARY KEY,
         name VARCHAR(255) UNIQUE NOT NULL,
+        icon VARCHAR(255) UNIQUE
       )
 
       CREATE TABLE orders (
