@@ -4,7 +4,6 @@ const { getUserById } = require("../db/models/user");
 const jwt = require("jsonwebtoken");
 
 const { createProduct, getAllProducts } = require("../db/models/products");
-const { userRouter } = require("./user");
 
 apiRouter.get("/", (req, res, next) => {
   res.send({
@@ -70,6 +69,7 @@ apiRouter.get("/products", async (req, res, next) => {
   }
 });
 
+const userRouter = require("./user");
 apiRouter.use("/user", userRouter);
 
 module.exports = apiRouter;
