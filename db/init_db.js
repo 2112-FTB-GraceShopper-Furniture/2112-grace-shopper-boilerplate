@@ -61,7 +61,8 @@ async function buildTables() {
         password VARCHAR(255) NOT NULL,
         firstname VARCHAR(255),
         lastname VARCHAR(255),
-        role VARCHAR(255)
+        role ENUM ('user', 'admin'),
+        creditCard INTEGER REFERENCES creditCard(id) ON DELETE CASCADE
       );
 
       CREATE TABLE products (
@@ -70,7 +71,7 @@ async function buildTables() {
         image VARCHAR(255),
         description VARCHAR(255) NOT NULL,
         stock INTEGER NOT NULL,
-        price VARCHAR(255) NOT NULL,
+        price INTEGER NOT NULL,
         category VARCHAR(255),
         reviewstars INTEGER
       );
@@ -86,7 +87,8 @@ async function buildTables() {
         zipcode VARCHAR(255) NOT NULL,
         country VARCHAR(255) NOT NULL,
         phone VARCHAR(255) NOT NULL,
-        total VARCHAR(255) NOT NULL
+        role ENUM ('inProgress', 'purchaised'),
+        "userId" INTEGER REFERENCES users(id) ON DELETE CASCADE
       );
 
       CREATE TABLE orderProducts (
