@@ -2,7 +2,7 @@ const client  = require("../client");
 
 
 
-const addProductsToCart = async ({ userId, productId, price, quantity }) => {
+const addProductToCart = async ({ userId, productId, price, quantity }) => {
 	try {
 		const { rows:  cart_products  } = await client.query(
 			`
@@ -69,4 +69,4 @@ const deleteProductInCart = async (id) => {
 
 
 
-module.exports = {addProductsToCart, updateProductInCart, deleteProductInCart}
+module.exports = {addProductToCart, updateProductInCart, deleteProductInCart}
