@@ -7,6 +7,7 @@ export const addNewCart = async () => {
     let response;
     let userId = localStorage.getItem('userId')
     let cartProductId = localStorage.getItem('cartProductArray')
+    
         try {
             response = await fetch(`${baseUrl}/cart`, {
             method: "POST",
@@ -32,11 +33,11 @@ localStorage.setItem('cart', JSON.stringify(cart));
             } 
                    
                 
- export const createProductCart = async ({productId, price, quantity}) => {
+ export const createProductCart = async (cartId, productId, price, quantity) => {
  let response;
 let userId = localStorage.getItem('userId')
-let cart = localStorage.getItem('cart')
-let cartId = cart.id;
+// let cart = localStorage.getItem('cart')
+// cartId = cart.id;
         try {
             response = await fetch(`${baseUrl}/cart/${cartId}`, {
                         method: "POST",

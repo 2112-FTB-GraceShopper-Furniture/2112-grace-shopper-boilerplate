@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getProductById } from "../axios-services/productScreen";
 import {useParams, useHistory} from 'react-router-dom';
 import { Link } from "react-router-dom";
+import {addNewCart, createProductCart} from "../axios-services/cart"
 
 
 const ProductScreen = () => {
@@ -17,6 +18,26 @@ useEffect(() => {
         setSingleProduct(singleProduct);
     })();
   }, []);
+
+  const handleAddToCart = async (event) => {
+    event.preventDefault();
+    let cart = localStorage.getItem('cart')
+    let cartId;
+    if(!cart){
+        const newCart = await addNewCart();
+        console.log("newCart", newCart)
+        cartId = newCart.id;
+    } else {
+        cartId = cart.id
+    }
+         try{
+            
+            const addedItem = await createProductCart(cartId, singleProduct.id, qty, singleProduct.price)
+        }
+         catch(error){
+           console.log(error)
+         }
+     }
 
 
   return (
@@ -42,7 +63,9 @@ useEffect(() => {
             ))}
         </select>
 
-        <button>Add to Cart</button>
+        {/* <button>Add to Cart</button> */}
+        <button onClick={(event) => { handleAddToCart(event) }}>Add to Cart</button>
+ 
         <Link to = "/Shop"> Go Back to Home Page </Link>
         
       
