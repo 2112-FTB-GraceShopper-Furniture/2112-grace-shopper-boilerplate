@@ -2,13 +2,13 @@
 
 
 import React, { useEffect, useState } from 'react';
-import { addNewCart, deleteCart, patchCart, getMyCart, createProductCart } from '../axios-services/cart';
+import { addNewCart, deleteCart, patchCart, getMyCartbyUserId, createProductCart } from '../axios-services/cart';
 
 const Cart = () => {
 
     const [quantity, setQuantity] = useState("");
     const [price, setPrice] = useState("");
-    const [myCart, setMyCart] = useState("");
+    const [myCart, setMyCart] = useState();
     const [myCartList, setMyCartList] = useState("");
     const [editCount, setEditCount] = useState("");
     const [editPrice, setEditPrice] = useState("");
@@ -18,12 +18,12 @@ const Cart = () => {
     const [addOpen, setAddOpen] = useState(false);
 
     const userId = localStorage.getItem('userId');
-    const cartProductArray = localStorage.getItem('cartProductArray')
-    const cart = localStorage.getItem('cart')
+    const cartProductArray = JSON.parse(localStorage.getItem('cartProductArray'));
+    const cart = JSON.parse(localStorage.getItem('cart'))
 
 
 useEffect(() => { (async () => {
-  const getMyCartList = await getMyCart();
+  const getMyCartList = await getMyCartbyUserId(userId);
   setMyCart(getMyCartList)
 })();
 }, []);
@@ -33,7 +33,7 @@ const handleDeleteCart = async (cartId, event) => {
  const deletedCart =  await deleteCart(cartId);
  delete cartProductArray.cartId;
  localStorage.setItem('cartProductArray', JSON.stringify(cartProductArray));
- const myCartList = await getMyCart();
+ const myCartList = await getMyCartbyUserId(userId);
  setMyCart(myCartList)
 }
 
@@ -74,7 +74,7 @@ console.log("creating a new item in the cart");
         event.preventDefault();
        console.log("creating a new item in the cart");
              try{const editedCart = await patchCart(cartId, quantity, price)
-                const myCartList = await getMyCart();
+                const myCartList = await getMyCartbyUserId(userId);
                 setMyCart(myCartList)
             }
              catch(error){
@@ -89,12 +89,11 @@ console.log("creating a new item in the cart");
         return (<div> 
         <div> <h2> Here all the items in your cart: </h2> 
 
-         <div>{!myCart? <div> Nothing to show, yet! Add a products to your cart! </div> : <div> {myCart.map(cart =>
+         <div>{myCart?  <div> {myCart.map(cart =>
                 <div key={cart.id}> 
-                   
-                      <p>product name:{cart.name}</p>
-                    <p>product quantity:{cart.quantity}</p>
-                    <p>product price:{cart.price}</p>
+                      <p>product name:{cart.userId}</p>
+                    {/* <p>product quantity:{cart.quantity}</p>
+                    <p>product price:{cart.price}</p> */}
                     {<button key={cart.id} onClick={() => { setEditOpen({ open: !editOpen, id: cart.id }) }} editOpen={editOpen}>Edit Product</button>}
                                 {editOpen.open && editOpen.id === cart.id ? <> New Product quantity:
                                 <input value={editCount}
@@ -107,7 +106,7 @@ console.log("creating a new item in the cart");
                    
                     {<button onClick={(id, event) => { handleDeleteCart(id, event) }}>Delete</button>}
                 </div>
-            ) }</div> }</div> 
+            ) }</div> : <div> Nothing to show, yet! Add a products to your cart! </div>}</div> 
         </div>
         </div>)
 }
