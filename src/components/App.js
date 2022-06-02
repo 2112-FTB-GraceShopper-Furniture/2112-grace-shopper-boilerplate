@@ -14,6 +14,7 @@ import LoggedIn from "./LoggedIn";
 import Logout from "./Logout";
 import Home from "./Home";
 import Products from "./Products";
+import Checkout from "./Checkout";
 
 
 
@@ -84,7 +85,9 @@ const App = () => {
             <Route exact path={"/"}>
               <Home />
             </Route>
-            
+            <Route exact path="/checkout">
+              <Checkout />
+            </Route>
             <Route exact path={"/Shop"}>
               <Products />
             </Route>
