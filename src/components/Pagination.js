@@ -1,25 +1,30 @@
-import React from 'react'
-import '../style/Pagination.css'
+import React from "react";
+import "../style/Pagination.css";
 
-const Pagination = ({productsPerPage, totalProducts, paginate}) => {
-    const pageNumbers = [];
+const Pagination = ({
+  productsPerPage,
+  totalProducts,
+  paginate,
+  currentPage,
+}) => {
+  const pageNumbers = [];
 
-    for(let i =1; i <= Math.ceil(totalProducts / productsPerPage); i++){
-        pageNumbers.push(i);
-    } 
+  for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
+    pageNumbers.push(i);
+  }
   return (
     <nav>
-        <ul className='pagination'>
-            {pageNumbers.map(number => (
-                <li key={number} className="page__item">
-                    <a onClick={() => paginate(number)} href='#' className='page__link'>
-                        {number}
-                    </a>
-                </li>
-            ))}
-        </ul>
+      <ul className="pagination">
+        {pageNumbers.map((number) => (
+          <li key={number} className="page__item">
+            <a onClick={() => paginate(number)} href="#" className="page__link">
+              {number}
+            </a>
+          </li>
+        ))}
+      </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Pagination
+export default Pagination;

@@ -25,7 +25,7 @@ function Home() {
             title="Bougie Modern Sofa"
             price={599.99}
             image={Sofa}
-            rating={5}
+            reviewstars={5}
           />
           <Product
             id="2"

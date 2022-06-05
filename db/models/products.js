@@ -1,5 +1,4 @@
-const client  = require("../client");
-
+const client = require("../client");
 
 async function createProduct({
   name,
@@ -11,6 +10,7 @@ async function createProduct({
   category,
 }) {
   try {
+    console.log(reviewstars);
     const {
       rows: [product],
     } = await client.query(
@@ -22,7 +22,7 @@ async function createProduct({
             `,
       [name, image, description, stock, price, reviewstars, category]
     );
-    //console.log(product);
+    console.log(product);
     return product;
   } catch (error) {
     throw error;
@@ -35,7 +35,6 @@ async function getAllProducts() {
     const { rows: products } = await client.query(`
       SELECT * FROM products
     `);
-    
 
     // console.log("inside the products",products)
     return products;
@@ -44,30 +43,30 @@ async function getAllProducts() {
   }
 }
 
-
-
-// view the details for an individual product (including product descriptions, photos and optionally, reviews), 
+// view the details for an individual product (including product descriptions, photos and optionally, reviews),
 // so that I can determine whether that particular item fits my needs
 
 const getProductById = async (productId) => {
-	try {
-		const { rows: [ product ] } = await client.query(
-			`
+  try {
+    const {
+      rows: [product],
+    } = await client.query(
+      `
             SELECT *
                 FROM products
                 WHERE id=$1;
             `,
-			[ productId ]
-		);
+      [productId]
+    );
 
-		return product;
-	} catch (error) {
-		throw error;
-	}
+    return product;
+  } catch (error) {
+    throw error;
+  }
 };
 
 module.exports = {
   createProduct,
   getAllProducts,
-  getProductById
+  getProductById,
 };
