@@ -17,8 +17,12 @@ import Home from "./Home";
 import Products from "./Products";
 import { getMyCartProductbyUserId } from "../axios-services/cart";
 
-const userId = localStorage.getItem("userId");
-const guestCart = JSON.parse(localStorage.getItem("ActiveCart"));
+
+
+const userId = localStorage.getItem('userId');
+const guestCart = JSON.parse(localStorage.getItem('ActiveCartWProducts'));
+
+
 
 const App = () => {
   const [APIHealth, setAPIHealth] = useState("");
@@ -95,8 +99,10 @@ const App = () => {
               <ProductScreen />
             </Route>
 
-            <Route path="/LoggedIn">
-              {loggedIn ? null : (
+
+            <Route path='/LoggedIn'>
+              {loggedIn ? <Logout loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> :
+
                 <LoggedIn loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
               )}
             </Route>
