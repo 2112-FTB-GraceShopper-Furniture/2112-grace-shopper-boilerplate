@@ -115,7 +115,7 @@ const App = () => {
             </Route>
 
             <Route path="/order">
-              <Order loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+              <Order loggedIn={loggedIn} setLoggedIn={setLoggedIn} quantityInCart = {quantityInCart} setQuantityInCart = {setQuantityInCart} />
             </Route>
 
             <Route path="/checkout">
