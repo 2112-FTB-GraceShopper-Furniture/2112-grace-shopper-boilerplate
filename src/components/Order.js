@@ -16,6 +16,7 @@ const Order = (props) => {
     const [lastName, setLastName] = useState('');
     const history = useHistory();
     const userId = localStorage.getItem("userId");
+    const {quantityInCart, setQuantityInCart} = props;
     const handleSubmit = async (event) => {
         event.preventDefault();
         const order = {
@@ -53,6 +54,8 @@ const Order = (props) => {
             const removeActiveCart = localStorage.removeItem("ActiveCart");
             const removeActiveCartWProducts = localStorage.removeItem("ActiveCartWProducts")
         }
+
+        setQuantityInCart(0);
         
         }
     };
