@@ -6,7 +6,7 @@ const productsToAdd = [
     stock: 11,
     price: 1299,
     reviewstars: 4,
-    category: "Living Room",
+    category: "Living-Room",
   },
   {
     name: "Konway Classical 2 Seater Sofa",
@@ -16,7 +16,7 @@ const productsToAdd = [
     stock: 52,
     price: 799,
     reviewstars: 3,
-    category: "Living Room",
+    category: "Living-Room",
   },
   {
     name: "Celene Coffee Table",
@@ -25,7 +25,7 @@ const productsToAdd = [
     stock: 23,
     price: 518,
     reviewstars: 5,
-    category: "Living Room",
+    category: "Living-Room",
   },
   {
     name: "Billy Dark Wood TV Stand",
@@ -35,7 +35,7 @@ const productsToAdd = [
     stock: 5,
     price: 303,
     reviewstars: 1,
-    category: "Living Room",
+    category: "Living-Room",
   },
   {
     name: "Twitty Bookcase",
@@ -45,17 +45,17 @@ const productsToAdd = [
     stock: 6,
     price: 1477,
     reviewstars: 5,
-    category: "Living Room",
+    category: "Living-Room",
   },
   {
-    name: "Schaerfler Living Room Set",
+    name: "Schaerfler Living-Room Set",
     description:
       "quis lectus. Nullam suscipit, est ac facilisis facilisis, magna tellus",
     image: "https://i.imgur.com/NwoxGTp.png",
     stock: 0,
     price: 5433,
     reviewstars: 5,
-    category: "Living Room",
+    category: "Living-Room",
   },
   {
     name: "Twain Traditional 3 Seater Sofa",
@@ -64,7 +64,7 @@ const productsToAdd = [
     stock: 11,
     price: 616,
     reviewstars: 5,
-    category: "Living Room",
+    category: "Living-Room",
   },
   {
     name: "Smolly Classic Love Sofa",
@@ -74,7 +74,7 @@ const productsToAdd = [
     stock: 20,
     price: 349,
     reviewstars: 3,
-    category: "Living Room",
+    category: "Living-Room",
   },
   {
     name: "Gravida Swing Accent Chair",
@@ -83,7 +83,7 @@ const productsToAdd = [
     stock: 10,
     price: 233,
     reviewstars: 4,
-    category: "Living Room",
+    category: "Living-Room",
   },
   {
     name: "Metus Bar & Table",
@@ -92,7 +92,7 @@ const productsToAdd = [
     stock: 28,
     price: 518,
     reviewstars: 4,
-    category: "Living Room",
+    category: "Living-Room",
   },
   {
     name: "Bugey Sofa",
@@ -102,7 +102,7 @@ const productsToAdd = [
     stock: 12,
     price: 160,
     reviewstars: 2,
-    category: "Living Room",
+    category: "Living-Room",
   },
   {
     name: "Saucey End Table",
@@ -112,7 +112,7 @@ const productsToAdd = [
     stock: 18,
     price: 82,
     reviewstars: 5,
-    category: "Living Room",
+    category: "Living-Room",
   },
   {
     name: "Convallis Dining Set",
@@ -122,7 +122,7 @@ const productsToAdd = [
     stock: 25,
     price: 1410,
     reviewstars: 5,
-    category: "Dining Room",
+    category: "Dining-Room",
   },
   {
     name: "Ultrices Round Dining Table",
@@ -131,7 +131,7 @@ const productsToAdd = [
     stock: 28,
     price: 455,
     reviewstars: 4,
-    category: "Dining Room",
+    category: "Dining-Room",
   },
   {
     name: "Sid Modern Dining Chair",
@@ -140,7 +140,7 @@ const productsToAdd = [
     stock: 30,
     price: 182,
     reviewstars: 5,
-    category: "Dining Room",
+    category: "Dining-Room",
   },
   {
     name: "Diam Dining Set",
@@ -150,17 +150,17 @@ const productsToAdd = [
     stock: 9,
     price: 1119,
     reviewstars: 5,
-    category: "Dining Room",
+    category: "Dining-Room",
   },
   {
-    name: "Retro Dining Room Chair",
+    name: "Retro Dining-Room Chair",
     description:
       "Aenean gravida nunc sed pede. Cum sociis natoque penatibus et",
     image: "https://i.imgur.com/wlRFyd4.jpg",
     stock: 25,
     price: 49,
     reviewstars: 5,
-    category: "Dining Room",
+    category: "Dining-Room",
   },
   {
     name: "Ligula Experience Dining Chair",
@@ -170,7 +170,7 @@ const productsToAdd = [
     stock: 26,
     price: 325,
     reviewstars: 5,
-    category: "Dining Room",
+    category: "Dining-Room",
   },
   {
     name: "Tincidunt Dining Table",
@@ -179,16 +179,16 @@ const productsToAdd = [
     stock: 27,
     price: 799,
     reviewstars: 5,
-    category: "Dining Room",
+    category: "Dining-Room",
   },
   {
-    name: "Brent Dining Room Set",
+    name: "Brent Dining-Room Set",
     description: "pede et risus. Quisque libero lacus, varius et, euismod et,",
     image: "https://i.imgur.com/8GBDj29.jpg",
     stock: 14,
     price: 696,
     reviewstars: 5,
-    category: "Dining Room Set",
+    category: "Dining-Room Set",
   },
   {
     name: "Dodgey Dining Chair",
@@ -198,7 +198,7 @@ const productsToAdd = [
     stock: 15,
     price: 37,
     reviewstars: 4,
-    category: "Dining Room",
+    category: "Dining-Room",
   },
   {
     name: "Neo Mesh Dining Chair",
@@ -208,7 +208,7 @@ const productsToAdd = [
     stock: 24,
     price: 40,
     reviewstars: 4,
-    category: "Dining Room",
+    category: "Dining-Room",
   },
 ];
 
