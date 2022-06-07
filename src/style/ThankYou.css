@@ -1,0 +1,7 @@
+.thankyou__hero {
+    width: 100%;
+    height: 100vh;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.413), rgba(0, 0, 0, 0.726)), url('/Assets/Relax.jpg') no-repeat center / cover;
+    margin-bottom: 5%;
+}

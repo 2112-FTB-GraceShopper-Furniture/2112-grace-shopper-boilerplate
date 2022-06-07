@@ -1,15 +1,9 @@
 import React from "react";
 import "../style/Home.css";
-import Product from "../components/Product";
+import FeaturedProduct from "./FeaturedProduct";
 
 
 const Hero = "/Assets/Home Hero Image.jpg";
-const Sofa = "/Assets/Sofa.jpg";
-const EndTable = "/Assets/End Table.jpg";
-const WoodChair = "/Assets/Wood Chair.jpg";
-const TableSets = "/Assets/Stylish End Table Sets.jpg";
-const ChildNightStand = "/Assets/Child Wooden Night Stand.jpg";
-const LivingRoomSet = "/Assets/Living Room Set.jpg";
 
 function Home() {
   return (
@@ -22,51 +16,51 @@ function Home() {
         />
 
         <div className="home__row">
-          <Product
+          <FeaturedProduct
             id="1"
-            title="Bougie Modern Sofa"
+            title="Test Name"
             price={599.99}
-            image={Sofa}
+            image='https://i.imgur.com/NwoxGTp.png'
             rating={5}
           />
-          <Product
+          <FeaturedProduct
             id="2"
             title="Modern End Table"
             price={199.95}
-            image={EndTable}
+            image='https://i.imgur.com/NwoxGTp.png'
             rating={4}
           />
         </div>
         <div className="home__row">
-          <Product
+          <FeaturedProduct
             id="3"
             title="Antique Wooden Chair"
             price={99.95}
-            image={WoodChair}
+            image='https://i.imgur.com/NwoxGTp.png'
             rating={4}
           />
-          <Product
+          <FeaturedProduct
             id="4"
             title="Stylish End Table Sets"
             price={199.95}
-            image={TableSets}
+            image='https://i.imgur.com/NwoxGTp.png'
             rating={5}
           />
-          <Product
+          <FeaturedProduct
             id="5"
             title="Child Wooden Night Stand"
             price={279.95}
-            image={ChildNightStand}
+            image='https://i.imgur.com/NwoxGTp.png'
             rating={5}
           />
         </div>
 
         <div className="home__row">
-          <Product
+          <FeaturedProduct
             id="6"
             title="Bobby Living Room Set"
             price={1279.95}
-            image={LivingRoomSet}
+            image='https://i.imgur.com/NwoxGTp.png'
             rating={5}
           />
         </div>

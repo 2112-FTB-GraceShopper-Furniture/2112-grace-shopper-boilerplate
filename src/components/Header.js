@@ -5,7 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import { BrowserRouter, Link } from "react-router-dom";
 import Logout from "./Logout";
-import LoggedIn  from "./LoggedIn";
+import LoggedIn from "./LoggedIn";
 
 const Logo = "/Assets/Coconut Furniture Logo.png";
 
@@ -17,25 +17,25 @@ function Header(props) {
 
   return (
     <div className="header">
-        <Link to="/">
-          <img className="header_logo" src={Logo} alt="Coconut Logo" />
-        </Link>
+      <Link to="/">
+        <img className="header_logo" src={Logo} alt="Coconut Logo" />
+      </Link>
 
-      <div className="header_search">
+      {/* <div className="header_search">
         <input className="header_searchInput" type="text"></input>
         <SearchIcon className="header_searchIcon" />
-      </div>
+      </div> */}
 
       <div className="header_nav">
         <div className="header_option">
 
-          {!loggedIn ? <span className="header_optionLineOne">Hello Guest</span> : 
-          <span className="header_optionLineOne">Hello {username}</span>}
+          {!loggedIn ? <span className="header_optionLineOne">Hello Guest</span> :
+            <span className="header_optionLineOne">Hello {username}</span>}
 
           <Link to="/LoggedIn">
-          {!loggedIn ? <span className="header_optionLineTwo">Sign In/Register</span> : 
-          <span className="header_optionLineTwo">Log Out</span> }
-          </Link> 
+            {!loggedIn ? <span className="header_optionLineTwo">Sign In/Register</span> :
+              <span className="header_optionLineTwo">Log Out</span>}
+          </Link>
 
         </div>
 
@@ -45,10 +45,10 @@ function Header(props) {
         </div> */}
 
         <div className="header_optionBasket">
-          <Link to = '/cart'><LocalShippingIcon /></Link>
+          <Link to='/cart'><LocalShippingIcon /></Link>
 
           <span className="header_optionLineTwo header_basketCount">{quantityInCart}</span>
-          
+
         </div>
       </div>
     </div>
