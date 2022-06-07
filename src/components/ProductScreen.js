@@ -101,8 +101,8 @@ const ProductScreen = (props) => {
 
     var cardStyle = {
         display: 'inline',
-        width: '100vw',
-        height: '50vh',
+        width: '400px',
+        height: '550px',
         justifyContent: 'center',
         alignContent: 'center'
     }
