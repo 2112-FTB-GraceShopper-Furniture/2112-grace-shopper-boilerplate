@@ -119,8 +119,8 @@ const ProductScreen = (props) => {
                     component="img"
                     image={singleProduct.image}
                     alt={singleProduct.name}
-                    height='300px'
-                    width='300px'
+                    height='100vh'
+                    width='100vw'
                 />
 
                 <CardContent>
