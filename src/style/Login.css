@@ -5,6 +5,7 @@
     padding: 100px;
     margin: 10px;
     justify-content: flex-end;
+    
 }
 
 .textBoxLogin {
@@ -17,6 +18,7 @@
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     border-color: black;
+    
 }
 
 .Btn_Login {
