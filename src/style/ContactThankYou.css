@@ -1,0 +1,41 @@
+.ThankYou__content {
+  width: 80%;
+  background: #fff;
+  padding: 20px 60px 40px 40px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.ThankYou__content h1 {
+  font-size: 48px;
+  font-weight: 900;
+  color: #8b5e3b;
+}
+
+.ThankYou__content h2 {
+  font-size: 32px;
+  font-weight: 200;
+  margin: 1% 0;
+}
+
+.ThankYou__content button {
+  color: #fff;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background-color: #8b5e3b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ThankYou__content button:hover {
+  background: #000;
+}
