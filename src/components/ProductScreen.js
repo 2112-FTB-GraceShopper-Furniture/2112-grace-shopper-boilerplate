@@ -9,6 +9,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { createProductCart, addNewCart, getMyCartProductbyUserId, patchCart } from "../axios-services/cart";
+import '../style/ProductScreen.css'
 
 
 
@@ -101,10 +102,11 @@ const ProductScreen = (props) => {
 
     var cardStyle = {
         display: 'inline',
-        width: '400px',
+        width: '1440px',
         height: '550px',
         justifyContent: 'center',
-        alignContent: 'center'
+        alignContent: 'center',
+        flexDirection: 'column'
     }
 
     var container = {
@@ -155,9 +157,9 @@ const ProductScreen = (props) => {
 
                     </Typography>
                 </CardContent>
-                <CardActions>
+                <CardActions className="test__class">
                     <Typography variant="body2" color="text.secondary">
-                        {singleProduct.stock > 0 ? <button onClick={(event) => {
+                        {singleProduct.stock > 0 ? <button className="product__button" onClick={(event) => {
                             handleAddToCart(event)
                         }}>Add to Cart</button> : <p> Product is out of stock </p>}
                     </Typography>

@@ -27,7 +27,7 @@ const AllProducts = () => {
 
   //change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+  console.log('This is the current page: ', currentPage)
   return (
     <div>
       <div className="product__section">
@@ -64,6 +64,7 @@ const AllProducts = () => {
             productsPerPage={productsPerPage}
             totalProducts={productList.length}
             paginate={paginate}
+            currentPage={currentPage}
           />
         </div>
       </div>
