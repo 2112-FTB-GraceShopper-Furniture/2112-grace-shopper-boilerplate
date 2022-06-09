@@ -23,23 +23,27 @@ const Cart = (props) => {
   useEffect(() => {
     (async () => {
       let myDBCartProducts;
-
-      let products = [];
       if (userId) {
         myDBCartProducts = await getMyCartProductbyUserId(userId);
         setProductsInCart(myDBCartProducts);
       } else {
         if (activeCart) {
-          activeCart.map(async item => {
+          const newCart = [];
+          for(var item of activeCart) {
+            const newItem = {...item};
+
             let product = await getProductById(item.productId);
             console.log(product);
-            item.name = product.name;
-            item.description = product.description;
-            item.image = product.image;
-          })
-          console.log(activeCart);
-          localStorage.setItem("ActiveCartWProducts", JSON.stringify(activeCart));
-          setProductsInCart(activeCart)
+            newItem.image = product.image;
+            newItem.name = product.name;
+            newItem.description = product.description;
+
+            newCart.push(newItem);
+          } 
+
+          console.log(newCart);
+          localStorage.setItem("ActiveCartWProducts", JSON.stringify(newCart));
+          setProductsInCart(newCart)
         }
 
       }
@@ -137,7 +141,7 @@ const Cart = (props) => {
       }
     })();
   }, [sumPrice]);
-
+console.log(productsInCart)
   return (
     <div>
       <div className='cart__container'>
@@ -150,8 +154,9 @@ const Cart = (props) => {
             <div>
               <div>total products:{quantityInCart}</div>
               <div>total price:{totalPrice}</div>
-              {productsInCart.map(product =>
-                <>
+              {productsInCart.map(product => {
+                console.log("PRODUCT: ", {...product})
+               return ( <>
                   <div key={product.productId}>
                     <div className="singleProductCart">
                       <img src={product.image} style={{ "height": '100px' }}></img>
@@ -171,8 +176,8 @@ const Cart = (props) => {
 
                   </div>
 
-                </>
-
+                </>)
+              }
               )}
             </div>}
         </div>
