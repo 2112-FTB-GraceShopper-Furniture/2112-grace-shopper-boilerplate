@@ -3,6 +3,7 @@ import { createOrders } from '../axios-services/orders';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { deleteCart, getMyCartProductbyUserId } from '../axios-services/cart';
+import '../style/Order.css'
 const Order = (props) => {
     const { loggedIn, setLoggedIn } = props;
     const [state,setState] = useState('');
@@ -90,21 +91,24 @@ const Order = (props) => {
     }
   return (
     <div>
-        <div className='Register'>
+        <div className='order-register'>
+            <h1 className='heading'>Checkout</h1>
+           <div className = 'input-container'>
             <form>
-                <input className='textBoxRegister' type = 'text' placeholder = "FirstName" value = {firstName} onChange = {updateFirstName} />
-                <input className='textBoxRegister' type = 'text' placeholder = "LastName" value = {lastName} onChange = {updateLastName} />
-                <input className='textBoxRegister' type = 'text' placeholder = "Email" value = {email} onChange = {updateEmail} />
-                <input className='textBoxRegister' type = 'text' placeholder = "Street" value = {street} onChange = {updateStreet} />
-                <input className='textBoxRegister' type = 'text' placeholder = "City" value = {city} onChange = {updateCity} />
-                <input className='textBoxRegister' type = 'text' placeholder = "State" value = {state} onChange = {updateState} />
-                <input className='textBoxRegister' type = 'text' placeholder = "Zipcode" value = {zipcode} onChange = {updateZipcode} />
-                <input className='textBoxRegister' type = 'text' placeholder = "Country" value = {country} onChange = {updateCountry} />
-                <input className='textBoxRegister' type = 'text' placeholder = "Phone" value = {phone} onChange = {updatePhone} />
+                <input className='input-box' type = 'text' placeholder = "FirstName" value = {firstName} onChange = {updateFirstName} />
+                <input className='input-box' type = 'text' placeholder = "LastName" value = {lastName} onChange = {updateLastName} />
+                <input className='input-box' type = 'text' placeholder = "Email" value = {email} onChange = {updateEmail} />
+                <input className='input-box' type = 'text' placeholder = "Street" value = {street} onChange = {updateStreet} />
+                <input className='input-box' type = 'text' placeholder = "City" value = {city} onChange = {updateCity} />
+                <input className='input-box' type = 'text' placeholder = "State" value = {state} onChange = {updateState} />
+                <input className='input-box' type = 'text' placeholder = "Zipcode" value = {zipcode} onChange = {updateZipcode} />
+                <input className='input-box' type = 'text' placeholder = "Country" value = {country} onChange = {updateCountry} />
+                <input className='input-box' type = 'text' placeholder = "Phone" value = {phone} onChange = {updatePhone} />
 
-                <button className='Btn_Register' onClick={(event) => { handleSubmit(event) }}>Checkout</button>
+                <button className='input-button' onClick={(event) => { handleSubmit(event) }}>Checkout</button>
                 
             </form>
+        </div>
         </div>
     </div>
   )

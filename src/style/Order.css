@@ -1,0 +1,65 @@
+.input-container {
+    width: 50%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.input-box {
+    height: 50px;
+    width: 100%;
+    margin: 12px 0;
+  }
+  
+  .input-box input,
+  .input-box textarea {
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    background: #f9e7da;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0px 15px;
+    resize: none;
+  }
+  
+  .message-box {
+    min-height: 110px;
+  }
+  
+  .input-button {
+    color: #fff;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background-color: #8b5e3b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .input-button :hover {
+    background: #000;
+  }
+
+  .order-register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+    margin: 10px;
+    justify-content: flex-end;
+    background: linear-gradient(rgba(0, 0, 0, 0.413), rgba(0, 0, 0, 0.145)),
+    url("https://i.imgur.com/VhIrdtz.jpg") no-repeat center / cover;
+    
+  }
+  .heading {
+    font-size: 48px;
+    font-weight: 900;
+    color: #8b5e3b;
+  }
+  
