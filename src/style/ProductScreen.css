@@ -22,3 +22,21 @@
   align-items: center;
   flex-direction: column;
 }
+.product__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1440px;
+  margin: auto;
+  border: none;
+  height: 100vh;
+}
+
+.left__side__product {
+  width: 50%;
+}
+.right__side__product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

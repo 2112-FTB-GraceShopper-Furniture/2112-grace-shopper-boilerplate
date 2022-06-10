@@ -100,74 +100,65 @@ const ProductScreen = (props) => {
 
     }
 
-    var cardStyle = {
-        display: 'inline',
-        width: '1440px',
-        height: '550px',
-        justifyContent: 'center',
-        alignContent: 'center',
-        flexDirection: 'column'
-    }
 
-    var container = {
-        display: 'flex',
-        justifyContent: 'center'
-    }
 
     return (
-        <div style={container}>
-            <Card style={cardStyle}>
-                <CardMedia
-                    component="img"
-                    image={singleProduct.image}
-                    alt={singleProduct.name}
-                    height='100vh'
-                    width='100vw'
-                />
+        <div>
+            <Card className="product__container" >
+                <div className="left__side__product">
+                    <CardMedia
+                        component="img"
+                        image={singleProduct.image}
+                        alt={singleProduct.name}
 
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        <h2>{singleProduct.name}</h2>
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        <h3> Description : {singleProduct.description}</h3>
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        <strong> Price : ${singleProduct.price} </strong>
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        <h4> Availability : {singleProduct.stock > 0 ? 'In Stock' : 'Out Of Stock'} </h4>
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        <label>
-                            <strong>Quantity</strong>
-                        </label>
+                    />
+                </div>
+                <div className="right__side__product">
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                            <h2>{singleProduct.name}</h2>
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            <h3> Description : {singleProduct.description}</h3>
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            <strong> Price : ${singleProduct.price} </strong>
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            <h4> Availability : {singleProduct.stock > 0 ? 'In Stock' : 'Out Of Stock'} </h4>
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            <label>
+                                <strong>Quantity</strong>
+                            </label>
 
-                        <select
-                            value={qty}
-                            onChange={(event) => setQty(event.target.value)}>
-                            {[...Array(singleProduct.stock).keys()].map((x) => (
-                                <option key={x} value={(x)}>
-                                    {x}
-                                    {console.log(typeof (x))}
-                                </option>
-                            ))}
-                        </select>
+                            <select
+                                value={qty}
+                                onChange={(event) => setQty(event.target.value)}>
+                                {[...Array(singleProduct.stock).keys()].map((x) => (
+                                    <option key={x} value={(x)}>
+                                        {x}
+                                        {console.log(typeof (x))}
+                                    </option>
+                                ))}
+                            </select>
 
 
-                    </Typography>
-                </CardContent>
-                <CardActions className="test__class">
-                    <Typography variant="body2" color="text.secondary">
-                        {singleProduct.stock > 0 ? <button className="product__button" onClick={(event) => {
-                            handleAddToCart(event)
-                        }}>Add to Cart</button> : <p> Product is out of stock </p>}
-                    </Typography>
+                        </Typography>
+                    </CardContent>
 
-                    <Typography variant="body2" color="text.secondary">
-                        <Link to="/Shop"> Go Back to Home Page </Link>
-                    </Typography>
-                </CardActions>
+                    <CardActions className="test__class">
+                        <Typography variant="body2" color="text.secondary">
+                            {singleProduct.stock > 0 ? <button className="product__button" onClick={(event) => {
+                                handleAddToCart(event)
+                            }}>Add to Cart</button> : <p> Product is out of stock </p>}
+                        </Typography>
+
+                        <Typography variant="body2" color="text.secondary">
+                            <Link to="/Shop"> Go Back to Home Page </Link>
+                        </Typography>
+                    </CardActions>
+                </div>
 
             </Card>
         </div>
