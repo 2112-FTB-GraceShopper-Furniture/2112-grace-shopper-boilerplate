@@ -29,8 +29,8 @@ const Cart = (props) => {
       } else {
         if (activeCart) {
           const newCart = [];
-          for(var item of activeCart) {
-            const newItem = {...item};
+          for (var item of activeCart) {
+            const newItem = { ...item };
 
             let product = await getProductById(item.productId);
             console.log(product);
@@ -39,7 +39,7 @@ const Cart = (props) => {
             newItem.description = product.description;
 
             newCart.push(newItem);
-          } 
+          }
 
           console.log(newCart);
           localStorage.setItem("ActiveCartWProducts", JSON.stringify(newCart));
@@ -141,38 +141,45 @@ const Cart = (props) => {
       }
     })();
   }, [sumPrice]);
-console.log(productsInCart)
+  console.log(productsInCart)
   return (
     <div>
+      <div className='cart__heading'>
+        <h2> Here all the items in your cart: </h2>
+      </div>
       <div className='cart__container'>
-        <div className='cart__heading'>
-          <h2> Here all the items in your cart: </h2>
-        </div>
+
         <div className="cart">
           {!productsInCart ?
             <div> Nothing to show, yet! Add a products to your cart! </div> :
             <div>
-              <div>total products:{quantityInCart}</div>
-              <div>total price:{totalPrice}</div>
+              <div className='total__container'>
+                <div><span className='titles'>total products:</span> {quantityInCart}</div>
+                <div><span className='titles'>total price:</span> ${totalPrice}</div>
+              </div>
               {productsInCart.map(product => {
-                console.log("PRODUCT: ", {...product})
-               return ( <>
+                console.log("PRODUCT: ", { ...product })
+                return (<>
                   <div key={product.productId}>
                     <div className="singleProductCart">
-                      <img src={product.image} style={{ "height": '100px' }}></img>
-                      <p>product name:{product.name}</p>
-                      <p>product description:{product.description}</p>
-                      <p>product id:{product.productId}</p>
-                      <p>product quantity:{product.quantity}</p>
-                      <p>product price($):{product.price}</p>
-                      <p>total($):{product.price * product.quantity}</p>
-                      {<button key={product.id} onClick={(event) => { setEditOpen({ open: !editOpen, id: product.id }) }} editOpen={editOpen}> Edit Product</button>}
-                      {editOpen.open && editOpen.id === product.id ?
-                        <> New Product quantity:
-                          <input value={qty} onChange={(event) => setQty(event.target.value)} />
-                          <button onClick={(event) => { handleEditCart(product.id, event) }}>Submit Edited cart</button>
-                        </> : null}
-                      {product.userId ? <button onClick={(id, event) => { handleDeleteCart(product.id, event) }}>Delete</button> : null}</div>
+                      <div cart__left>
+                        <img className='product__image' src={product.image} />
+                      </div>
+                      <div className='cart__right'>
+                        <p><span className='titles'>product name:</span> {product.name}</p>
+                        <p><span className='titles'>product description:</span> {product.description}</p>
+                        <p><span className='titles'>product id:</span> {product.productId}</p>
+                        <p><span className='titles'>product quantity:</span> {product.quantity}</p>
+                        <p><span className='titles'>product price($):</span> {product.price}</p>
+                        <p><span className='titles'>total($):</span> {product.price * product.quantity}</p>
+                        {<button className='list__button' key={product.id} onClick={(event) => { setEditOpen({ open: !editOpen, id: product.id }) }} editOpen={editOpen}> Edit Product</button>}
+                        {editOpen.open && editOpen.id === product.id ?
+                          <> New Product quantity:
+                            <input className='input__field' value={qty} onChange={(event) => setQty(event.target.value)} />
+                            <button className='list__button' onClick={(event) => { handleEditCart(product.id, event) }}>Submit Edited cart</button>
+                          </> : null}
+                        {product.userId ? <button className='list__button' onClick={(id, event) => { handleDeleteCart(product.id, event) }}>Delete</button> : null}</div>
+                    </div>
 
                   </div>
 
@@ -182,9 +189,21 @@ console.log(productsInCart)
             </div>}
         </div>
       </div>
-      <div> {(productsInCart.length !== 0) && <button onClick={(event) => { handleOrder(event) }}>Submit Order</button>} </div>
-      <div> <button onClick={(event) => { handleShop(event) }}>Continue Shopping</button> </div>
+      <div className='end__section'>
+        <div>
+          <button className='list__button' onClick={(event) => { handleShop(event) }}>
+            Go back to shopping
+          </button>
+        </div>
+        <div> {(productsInCart.length !== 0) &&
+          <button className='list__button' onClick={(event) => { handleOrder(event) }}>
+            Checkout
+          </button>}
+        </div>
+
+      </div>
     </div>)
+
 }
 
 
