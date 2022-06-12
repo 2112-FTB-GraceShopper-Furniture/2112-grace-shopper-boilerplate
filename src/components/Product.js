@@ -21,7 +21,7 @@ function Product({ id, title, image, price, reviewstars, alt }) {
       </div>
 
       <Link to={`/products/${id}`}>
-        <img src={image} alt={alt} />
+        <img src={image} alt={"test"} />
       </Link>
     </div>
   );
