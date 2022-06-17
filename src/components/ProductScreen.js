@@ -151,7 +151,7 @@ const ProductScreen = (props) => {
                         <Typography variant="body2" color="text.secondary">
                             {singleProduct.stock > 0 ? <button className="product__button" onClick={(event) => {
                                 handleAddToCart(event)
-                            }}>Add to Cart</button> : <p> Product is out of stock </p>}
+                            }}>Add to Cart</button> : <div><button className="product__button" disabled = {true}>Add to Cart</button><p> Product is out of stock </p></div>}
                         </Typography>
 
                         <Typography variant="body2" color="text.secondary">
